@@ -1,7 +1,7 @@
 IMPORTANT
 to be able to view the file you have to download it and open it with TI Connect CE, as it is written in TI-Basic.
 
-# Kegelsnede
+# Conic section
 A repository for a school project, writing a program for a TI-84 Plus calculator to calculate different things about conic sections.
 The program gives different calculations and information about a conic section you put in.
 
