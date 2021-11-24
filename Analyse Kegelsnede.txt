@@ -25,57 +25,62 @@ Output(2,3,H)
 If G>0 and H<0
 Then
 Output(3,1,"Een reële ellips")
-Output(4,1,"Kan gereduceerd worden tot")
-Output(5,1,"x²+y²=1")
+Output(4,1,"Kan gereduceerd worden tot x²+y²=1")
+Output(6,1,"Enter om verder te gaan naar reductie")
+Pause 
 End
 If G>0 and H>0
 Then
 Output(3,1,"Een imaginaire ellips")
-Output(4,1,"Kan gereduceerd worden tot ")
-Output(5,1,"x²+y²=-1")
+Output(4,1,"Kan gereduceerd worden tot x²+y²=-1")
+Output(6,1,"Enter om verder te gaan naar reductie")
+Pause 
 End
 If G<0 and H≠0
 Then
 Output(3,1,"Een reële hyperbool")
 Output(4,1,"Kan gereduceerd worden tot x²-y²=1")
-Output(5,1,"x²+y²=-1")
+Output(6,1,"Enter om verder te gaan naar reductie")
+Pause 
 End
 If G<0 and H=0
 Then
 Output(3,1,"Een ontaarde hyperbool")
-Output(4,1,"Kan gereduceerd worden tot")
-Output(5,1,"x²-y²=0")
+Output(4,1,"Kan gereduceerd worden tot x²-y²=0")
+Output(6,1,"Enter om verder te gaan naar reductie")
+Pause 
 End
 If G=0 and H≠0
 Then
 Output(3,1,"Een reële parabool")
-Output(4,1,"Kan gereduceerd worden tot")
-Output(5,1," y=x²")
+Output(4,1,"Kan gereduceerd worden tot y=x²")
+Output(6,1,"Enter om verder te gaan naar reductie")
+Pause 
 End
 If G=0 and H=0
 Then
 If 4*E²-4*A*C<0
 Then
 Output(3,1,"Twee reële evenwijdige rechten")
-Output(4,1,"Kan gereduceerd worden naar")
-Output(5,1,"x²=1")
+Output(4,1,"Kan gereduceerd worden naar x²=1")
+Output(6,1,"Enter om verder te gaan naar reductie")
+Pause 
 End
 If 4*E²-4*A*C<0
 Then
 Output(3,1,"Twee toegevoegd imaginaire rechten")
-Output(4,1,"Kan gereduceerd worden naar")
-Output(5,1,"x²=-1")
+Output(4,1,"Kan gereduceerd worden naar x²=-1")
+Output(6,1,"Enter om verder te gaan naar reductie")
+Pause 
 End
 If 4*E²-4*A*C=0
 Then
 Output(3,1,"Twee samenvallende (reële) rechten")
-Output(4,1,"Kan gereduceerd worden naar")
-Output(5,1,"x²=0")
-End
-End
-
+Output(4,1,"Kan gereduceerd worden naar x²=0")
 Output(6,1,"Enter om verder te gaan naar reductie")
 Pause 
+End
+End
 Goto 2
 
 Lbl P1
@@ -100,4 +105,3 @@ Goto 2
 Lbl S1
 ClrHome
 Stop
-
