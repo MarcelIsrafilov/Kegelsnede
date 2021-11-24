@@ -86,6 +86,12 @@ Output(2,1,"m1 mag niet 0 zijn")
 End
 Input "m1=",I
 (0-A-D*I)/(B*I+D)→J
+If I=J
+Then
+Output(5,1,"Asymptotische Richtingen!")
+Pause 
+Goto R1
+End
 Output(3,1,"m2= ")
 Output(3,4,J)
 Output(5,1,"x=")
@@ -124,6 +130,19 @@ X→B
 0→D
 Y→E
 Z→F
+Output(1,1,"De nieuwe fct")
+Output(2,3,A)
+Output(2,6,"x'^2+")
+Output(3,3,B)
+Output(3,6,"y'^2+")
+Output(4,3,C)
+Output(4,6,"+")
+Output(5,3,D)
+Output(5,6,"x'y'+")
+Output(6,3,E)
+Output(5,6,"x'+")
+Output(7,3,F)
+Output(5,6,"y'+")
 Pause
 Goto 2
 
