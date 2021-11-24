@@ -74,7 +74,7 @@ Output(5,1,"x²=0")
 End
 End
 
-Output(5,1,"Enter om verder te gaan naar reductie")
+Output(6,1,"Enter om verder te gaan naar reductie")
 Pause 
 Goto 2
 
