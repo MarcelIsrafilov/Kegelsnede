@@ -1,5 +1,5 @@
 IMPORTANT
-to be able to view the file you have to download it and open it with TI Connect CE, as it is written in TI-Basic.
+The actual file is not up-to-date, because of the difficulty of updating it on github. It's not a supported language and to update it we have to delete it and add the new version. The code that gets updated can be found in the txt.
 
 # Conic section
 A repository for a school project, writing a program for a TI-84 Plus calculator to calculate different things about conic sections.
