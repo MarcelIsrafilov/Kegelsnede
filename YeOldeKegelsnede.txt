@@ -1,3 +1,14 @@
+ClrDraw
+RecallPic1
+rand(80
+ClrDraw
+RecallPic2
+rand(80
+ClrDraw
+RecallPic3
+Pause 
+ClrDraw
+
 Lbl 1
 ClrHome
 Output(1,1,"Geef de coeffn in van K")
@@ -13,6 +24,98 @@ Goto 2
 
 Lbl 2
 Menu("Keuze","Classificatieandreductie",C1,"Poolvorm 2 punten",P1,"Toegevoegde Richtingen",R1,"Aanpassen coeffn",1,"Stop",S1)
+
+
+Output(5,1,"Enter om verder te gaan naar reductie")
+Pause 
+Goto 2
+
+Lbl R1
+ClrHome
+If A=0
+Then
+Output(2,1,"m1 mag niet 0 zijn")
+End
+Input "m1=",I
+(0-A-D*I)/(B*I+D)→J
+If I=J
+Then
+Output(5,1,"Asymptotische Richtingen!")
+Pause 
+Goto R1
+End
+Output(3,1,"m2= ")
+Output(3,4,J)
+Output(5,1,"x=")
+Output(5,3,1)
+Output(5,5,"E1+")
+Output(5,9,round(I,4)
+Output(5,15,"E2")
+Output(6,1,"y=")
+Output(6,3,1)
+Output(6,5,"E1+")
+Output(6,9,round(J,4)
+Output(6,15,"E2")
+Pause 
+ClrHome
+Output(1,1,"De nieuwe fct is")
+Output(2,3,round((A+2DI+BII),4)
+Output(2,10,"x'^2+")
+Output(3,3,round((A+2DJ+BJJ),4)
+Output(3,10,"y'^2+")
+Output(4,3,round((2E+2FI),4)
+Output(4,10,"x'  +")
+Output(5,3,round((2E+2FJ),4)
+Output(5,10,"y'  +")
+Output(6,3,C)
+Output(6,10,"=0")
+Pause 
+Menu("Keuze","Terug naar home",2,"onthou coëff",T1)
+
+Lbl T1
+(BII+2DI+A)→W
+(BJJ+2DJ+A)→X
+(2E+2FI)→Y
+(2E+2FJ)→Z
+W→A
+X→B
+0→D
+Y→E
+Z→F
+Output(1,1,"De nieuwe fct")
+Output(2,3,A)
+Output(2,6,"x'^2+")
+Output(3,3,B)
+Output(3,6,"y'^2+")
+Output(4,3,C)
+Output(4,6,"+")
+Output(5,3,D)
+Output(5,6,"x'y'+")
+Output(6,3,E)
+Output(5,6,"x'+")
+Output(7,3,F)
+Output(5,6,"y'+")
+Pause 
+Goto 2
+
+Lbl P1
+ClrHome
+Output(1,1,"Geef de coordn v/d puntn")
+Output(2,1,"in de volgorde")
+Output(3,1,"x1,y1,z1,x2,y2,z2")
+Pause 
+ClrHome
+For(T,1,6)
+Input U
+U→⌊PUNTN(T)
+End
+ClrHome
+(A*⌊PUNTN(1)*⌊PUNTN(4))+(B*⌊PUNTN(2)*⌊PUNTN(5))+(C*⌊PUNTN(3)*⌊PUNTN(6))+D*(⌊PUNTN(1)*⌊PUNTN(5)+⌊PUNTN(4)*⌊PUNTN(2))+E*(⌊PUNTN(1)*⌊PUNTN(6)+⌊PUNTN(4)*⌊PUNTN(3))+F*(⌊PUNTN(2)*⌊PUNTN(6)+⌊PUNTN(5)*⌊PUNTN(3))→P
+Output(1,1,"Poolvorm=")
+Output(1,10,P)
+Output(2,1,"Enter om verder te gaan")
+Pause 
+Goto 2
 
 Lbl C1
 ((A*B)-(D*D))→G
@@ -73,95 +176,6 @@ Output(4,1,"Kan gereduceerd worden naar")
 Output(5,1,"x²=0")
 End
 End
-
-Output(5,1,"Enter om verder te gaan naar reductie")
-Pause 
-Goto 2
-
-Lbl R1
-ClrHome
-If A=0
-Then
-Output(2,1,"m1 mag niet 0 zijn")
-End
-Input "m1=",I
-(0-A-D*I)/(B*I+D)→J
-If I=J
-Then
-Output(5,1,"Asymptotische Richtingen!")
-Pause 
-Goto R1
-End
-Output(3,1,"m2= ")
-Output(3,4,J)
-Output(5,1,"x=")
-Output(5,3,1)
-Output(5,5,"E1+")
-Output(5,9,I)
-Output(5,12,"E2")
-Output(6,1,"y=")
-Output(6,3,1)
-Output(6,5,"E1+")
-Output(6,9,J)
-Output(6,12,"E2")
-Pause 
-ClrHome
-Output(1,1,"De nieuwe fct is")
-Output(2,3,(A+2DI+BII)
-Output(2,6,"x'^2+")
-Output(3,3,(A+2DJ+BJJ)
-Output(3,6,"y'^2+")
-Output(4,3,(2E+2FI)
-Output(4,6,"x'+")
-Output(5,3,(2E+2FJ)
-Output(5,6,"y'+")
-Output(6,3,C)
-Output(6,6,"=0")
-Pause 
-Menu("Keuze","Terug naar home",2,"onthou coëff",T1)
-
-Lbl T1
-(BII+2DI+A)→W
-(BJJ+2DJ+A)→X
-(2E+2FI)→Y
-(2E+2FJ)→Z
-W→A
-X→B
-0→D
-Y→E
-Z→F
-Output(1,1,"De nieuwe fct")
-Output(2,3,A)
-Output(2,6,"x'^2+")
-Output(3,3,B)
-Output(3,6,"y'^2+")
-Output(4,3,C)
-Output(4,6,"+")
-Output(5,3,D)
-Output(5,6,"x'y'+")
-Output(6,3,E)
-Output(5,6,"x'+")
-Output(7,3,F)
-Output(5,6,"y'+")
-Pause
-Goto 2
-
-Lbl P1
-ClrHome
-Output(1,1,"Geef de coordn v/d puntn")
-Output(2,1,"in de volgorde")
-Output(3,1,"x1,y1,z1,x2,y2,z2")
-Pause 
-ClrHome
-For(T,1,6)
-Input U
-U→⌊PUNTN(T)
-End
-ClrHome
-(A*⌊PUNTN(1)*⌊PUNTN(4))+(B*⌊PUNTN(2)*⌊PUNTN(5))+(C*⌊PUNTN(3)*⌊PUNTN(6))+D*(⌊PUNTN(1)*⌊PUNTN(5)+⌊PUNTN(4)*⌊PUNTN(2))+E*(⌊PUNTN(1)*⌊PUNTN(6)+⌊PUNTN(4)*⌊PUNTN(3))+F*(⌊PUNTN(2)*⌊PUNTN(6)+⌊PUNTN(5)*⌊PUNTN(3))→P
-Output(1,1,"Poolvorm=")
-Output(1,10,P)
-Output(2,1,"Enter om verder te gaan")
 Pause 
 Goto 2
 
