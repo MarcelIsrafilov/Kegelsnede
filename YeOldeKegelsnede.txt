@@ -1,9 +1,9 @@
 ClrDraw
 RecallPic1
-rand(80
+rand(60
 ClrDraw
 RecallPic2
-rand(80
+rand(60
 ClrDraw
 RecallPic3
 Pause 
@@ -44,34 +44,64 @@ Output(5,1,"Asymptotische Richtingen!")
 Pause 
 Goto R1
 End
+
+If abs(I)=abs(int(I))
+Then
+1→K
+End
+If abs(I)≠abs(int(I))
+Then
+While abs(IK)≠abs(int(IK))andK<21
+K+1→K
+End
+If K=21
+Then
+1→K
+End
+End
+
+If abs(J)=abs(int(J))
+Then
+1→L
+End
+If abs(J)≠abs(int(J))
+Then
+While abs(JL)≠abs(int(JL))andL<21
+L+1→L
+End
+If L=21
+Then
+1→L
+End
+End
+
 Output(3,1,"m2= ")
 Output(3,4,J)
 Output(5,1,"x=")
-Output(5,3,1)
+Output(5,3,K)
 Output(5,5,"E1+")
-Output(5,9,round(I,4)
+Output(5,9,IK
 Output(5,15,"E2")
 Output(6,1,"y=")
-Output(6,3,1)
+Output(6,3,L)
 Output(6,5,"E1+")
-Output(6,9,round(J,4)
+Output(6,9,JL
 Output(6,15,"E2")
 Pause 
 ClrHome
 Output(1,1,"De nieuwe fct is")
-Output(2,3,round((A+2DI+BII),4)
+Output(2,3,AKK+2DKKI+((BIIKK)))
 Output(2,10,"x'^2+")
-Output(3,3,round((A+2DJ+BJJ),4)
+Output(3,3,ALL+2DLLJ+(BJJLL))
 Output(3,10,"y'^2+")
-Output(4,3,round((2E+2FI),4)
+Output(4,3,(2EK+2KIF)
 Output(4,10,"x'  +")
-Output(5,3,round((2E+2FJ),4)
+Output(5,3,(2EL+2JLF)
 Output(5,10,"y'  +")
 Output(6,3,C)
 Output(6,10,"=0")
 Pause 
-Menu("Keuze","Terug naar home",2,"onthou coëff",T1)
-
+Menu("Keuze","Terug naar home",2)
 Lbl T1
 (BII+2DI+A)→W
 (BJJ+2DJ+A)→X
