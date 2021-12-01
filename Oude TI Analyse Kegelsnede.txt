@@ -1,13 +1,3 @@
-ClrDraw
-RecallPic1
-rand(60
-ClrDraw
-RecallPic2
-rand(60
-ClrDraw
-RecallPic3
-Pause 
-ClrDraw
 
 Lbl 1
 ClrHome
