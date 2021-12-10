@@ -1,9 +1,18 @@
-Lbl 1
 AxesOff
 0→Xmin
 94→Xmax
 0→Ymax
 ­62→Ymin
+
+While 0=1
+
+//setup
+----------------------------------------
+//Input
+
+End
+
+Lbl 1
 ClrDraw
 ClrHome
 Output(1,1,"Geef de coeffn in van K")
@@ -17,8 +26,25 @@ Input "b'=",E
 Input "b=",F
 Goto 2
 
+While 0=1
+
+//input
+----------------------------------------
+//keuze
+
+End
+
 Lbl 2
 Menu("Keuze","Classificatie en reductie",C1,"Poolvorm 2 punten",P1,"Aanpassen coeffn",1,"Stop",S1)
+
+While 0=1
+
+//keuze
+----------------------------------------
+//Classificatie
+
+End
+
 
 Lbl C1
 ((A*B)-(D*D))→G
@@ -105,6 +131,15 @@ Goto R1
 End
 End
 Goto 2
+
+While 0=1
+
+//Classificatie
+----------------------------------------
+//Reductie 1 (b" weg)
+
+End
+
 
 Lbl R1
 ClrHome
@@ -216,6 +251,15 @@ F→⌊XYWEG(6)
 Goto R2
 End
 End
+
+While 0=1
+
+//reductie 1
+----------------------------------------
+//reductie 2
+
+End
+
 
 Lbl R2
 If I≠0
@@ -360,8 +404,24 @@ End
 ClrDraw
 Goto 2
 
+While 0=1
+
+//reductie 2
+----------------------------------------
+//reductie 3
+
+End
+
 Lbl R3
 Goto 2
+
+While 0=1
+
+//reductie 3
+----------------------------------------
+//Poolvorm
+
+End
 
 Lbl P1
 ClrHome
@@ -381,6 +441,14 @@ Output(1,10,P)
 Output(2,1,"Enter om verder te gaan")
 Pause 
 Goto 2
+
+While 0=1
+
+//poolvorm
+----------------------------------------
+//Stop v/h programma
+
+End
 
 Lbl S1
 ClrHome
