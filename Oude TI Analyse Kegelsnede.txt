@@ -46,6 +46,10 @@ End
 
 Lbl R1
 ClrHome
+Menu("Keuze","Richting Kiezen",R1A,"orthogonale assen",R1B)
+
+Lbl R1A
+ClrHome
 If A=0
 Then
 Output(2,1,"m1 mag niet 0 zijn")
@@ -56,9 +60,37 @@ If I=J
 Then
 Output(5,1,"Asymptotische Richtingen!")
 Pause 
-Goto R1
+Goto R1A
 End
+Goto R1C
 
+Lbl R1B
+((B-A)+√(AA-2AB+BB+4DD))/(2D)→I
+((B-A)-√(AA-2AB+BB+4DD))/(2D)→J
+
+Text(4,3,"M1=")
+Text(4,15,IK)
+If K≠1
+Then
+Line(12,­13,18,­13)
+Text(13,13,K)
+End
+Text(4,30,"M2=")
+Text(4,43,JL)
+If L≠1
+Then
+Line(41,­13,48,­13)
+Text(13,43,L)
+End
+Pause 
+ClrDraw
+Menu("Keuze","Richting behouden",R1B1,"Richtingen Omwisselen",R1C)
+
+Lbl R1B1
+I+J→I
+I-J→J
+I-J→I
+Goto R1C
 
 While 0=1
 //Richtingen kiezen
@@ -66,6 +98,9 @@ While 0=1
 //Richtingen Versimpelen
 End
 
+
+Lbl R1C
+ClrHome
 1→K
 If IK≠int(IK)
 Then
@@ -95,7 +130,6 @@ While 0=1
 ---------------------------------------------------------------------------
 //Reductie van xy
 End
-
 
 Text(4,3,"M1=")
 Text(4,15,IK)
@@ -231,7 +265,6 @@ Output(1,1,"δ=")
 Output(1,3,G)
 Output(2,1,"=")
 Output(2,3,H)
-End
 
 While 0=1
 //Classificatie
@@ -239,14 +272,16 @@ While 0=1
 //Resultaten v/ classificatie
 
 ((⌊T1(1)*⌊T1(2))→⌊T1(7)
-((⌊T1(1)*⌊T1(2)*⌊T1(3))-(⌊T1(5)*⌊T1(5)*⌊T1(2))-(⌊T1(6)*⌊T1(6)*⌊T1(1)))→⌊T1(8)
-If G>0andAH<0
+(((⌊T1(1)*⌊T1(2)*⌊T1(3))-(⌊T1(5)*⌊T1(5)*⌊T1(2))-(⌊T1(6)*⌊T1(6)*⌊T1(1)))→⌊T1(8)
+
+If G>0andA*H<0
 Then
 Output(3,1,"Een reële ellips")
-Output(4,1,"Kan gereduceerd worden tot")
+Output(4,1,"reduceerbaar tot")
 Output(5,1,"x²+y²=1")
 Pause
-Output(1,1,(⌊T1(1))²)
+ClrHome
+Output(1,1,(⌊T1(1)*⌊T1(1)))
 Output(1,3,"(x+")
 Output(1,7,⌊T1(5)/⌊T1(1))
 Output(1,9,")²+")
@@ -261,53 +296,37 @@ Output(4,5,­⌊T1(5)/⌊T1(1))
 Output(4,7,",")
 Output(4,8,­⌊T1(6)/⌊T1(2))
 Output(4,10,")")
+ClrHome
 Pause 
-
-
-
 End
 
-If G>0andAH>0
+If G>0andA*H>0
 Then
 Output(3,1,"Een imaginaire ellips")
-Output(4,1,"Kan gereduceerd worden tot ")
+Output(4,1,"reduceerbaar tot")
 Output(5,1,"x²+y²=-1")
+
 Pause
-Output(1,1,(⌊T1(1))²)
-Output(1,3,"(x+")
-Output(1,7,⌊T1(5)/⌊T1(1))
-Output(1,9,")²+")
-Output(2,1,(⌊T1(7)))
-Output(2,3,"(y+")
-Output(2,7,⌊T1(6)/⌊T1(2))
-Output(2,9,")²=")
-Output(2,11,(­⌊T1(1)*⌊T1(8))/⌊T1(7))
-Output(3,1,"Oorsprong verschuiving naar")
-Output(4,1,"O'=(")
-Output(4,5,­⌊T1(5)/⌊T1(1))
-Output(4,7,",")
-Output(4,8,­⌊T1(6)/⌊T1(2))
-Output(4,10,")")
 End
 
-If G<0andAH≠0
+If G<0andA*H≠0
 Then
 Output(3,1,"Een reële hyperbool")
-Output(4,1,"Kan gereduceerd worden tot x²-y²=1")
+Output(4,1,"reduceerbaar tot")
 Output(5,1,"x²+y²=0")
 End
 
 If G<0andH=0
 Then
 Output(3,1,"Een ontaarde hyperbool")
-Output(4,1,"Kan gereduceerd worden tot")
+Output(4,1,"reduceerbaar tot")
 Output(5,1,"x²-y²=0")
 End
 
 If G=0andH≠0
 Then
 Output(3,1,"Een reële parabool")
-Output(4,1,"Kan gereduceerd worden tot")
+Output(4,1,"reduceerbaar tot")
 Output(5,1," y=x²")
 End
 
@@ -316,26 +335,26 @@ Then
 If 4*E²-(4*A*C)>0
 Then
 Output(3,1,"Twee reële evenwijdige rechten")
-Output(4,1,"Kan gereduceerd worden naar")
+Output(4,1,"reduceerbaar tot")
 Output(5,1,"x²=1")
 End
-
 If 4*E²-(4*A*C)<0
 Then
 Output(3,1,"Twee toegevoegd imaginaire rechten")
-Output(4,1,"Kan gereduceerd worden naar")
+Output(4,1,"reduceerbaar tot")
 Output(5,1,"x²=-1")
 End
-
 If 4*E²-(4*A*C)=0
 Then
 Output(3,1,"Twee samenvallende (reële) rechten")
-Output(4,1,"Kan gereduceerd worden naar")
+Output(4,1,"reduceerbaar tot")
 Output(5,1,"x²=0")
 End
 End
+
 Pause 
 ClrDraw
+ClrHome
 Goto 2
 
 
