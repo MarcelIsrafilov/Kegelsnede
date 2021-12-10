@@ -1,3 +1,17 @@
+1→Xmin
+95→Xmax
+0-63→Ymin
+0-1→Ymax
+ClrDraw
+AxesOff
+1→S
+
+
+While 0=1
+//Setup
+---------------------------------------------------------------------------
+//Coeff
+End
 
 Lbl 1
 ClrHome
@@ -12,13 +26,23 @@ Input "b'=",E
 Input "b=",F
 Goto 2
 
+
+While 0=1
+//Coeff
+---------------------------------------------------------------------------
+//Keuzemenu
+End
+
 Lbl 2
 Menu("Keuze","Classificatieandreductie",C1,"Poolvorm 2 punten",P1,"Toegevoegde Richtingen",R1,"Aanpassen coeffn",1,"Stop",S1)
 
 
-Output(5,1,"Enter om verder te gaan naar reductie")
-Pause 
-Goto 2
+
+While 0=1
+//Keuzemenu
+---------------------------------------------------------------------------
+// Richtingen Kiezen
+End
 
 Lbl R1
 ClrHome
@@ -27,7 +51,7 @@ Then
 Output(2,1,"m1 mag niet 0 zijn")
 End
 Input "m1=",I
-(0-A-D*I)/(B*I+D)→J
+(0-A-DI)/(BI+D)→J
 If I=J
 Then
 Output(5,1,"Asymptotische Richtingen!")
@@ -35,88 +59,129 @@ Pause
 Goto R1
 End
 
-If abs(I)=abs(int(I))
-Then
-1→K
+
+While 0=1
+//Richtingen kiezen
+---------------------------------------------------------------------------
+//Richtingen Versimpelen
 End
-If abs(I)≠abs(int(I))
-Then
-While abs(IK)≠abs(int(IK))andK<21
-K+1→K
-End
-If K=21
-Then
+
 1→K
+If IK≠int(IK)
+Then
+For(T,50,1,­1)
+If abs(IT)=abs(int(IT))
+Then
+T→K
 End
 End
 
-If abs(J)=abs(int(J))
-Then
 1→L
-End
-If abs(J)≠abs(int(J))
+If JL≠int(JL)
 Then
-While abs(JL)≠abs(int(JL))andL<21
-L+1→L
-End
-If L=21
+For(T,50,1,­1)
+If abs(JT)=abs(int(JT))
 Then
-1→L
+T→L
 End
 End
 
-Output(3,1,"m2= ")
-Output(3,4,J)
-Output(5,1,"x=")
-Output(5,3,K)
-Output(5,5,"E1+")
-Output(5,9,IK
-Output(5,15,"E2")
-Output(6,1,"y=")
-Output(6,3,L)
-Output(6,5,"E1+")
-Output(6,9,JL
-Output(6,15,"E2")
+0→S
+
+
+While 0=1
+//Simplificatie Richtingen
+---------------------------------------------------------------------------
+//Reductie van xy
+End
+
+
+Text(4,3,"M1=")
+Text(4,15,IK)
+If K≠1
+Then
+Line(12,­13,18,­13)
+Text(13,13,K)
+End
+Text(4,30,"M2=")
+Text(4,43,JL)
+If L≠1
+Then
+Line(41,­13,48,­13)
+Text(13,43,L)
+End
+
+Line(1,­54,2,­54)
+Line(1,­54,1,­34)
+Line(1,­34,2,­34)
+Line(8,­54,9,­54)
+Line(9,­54,9,­34)
+Line(8,­34,9,­34)
+Text(44,3,"y")
+Text(34,3,"x")
+Line(15,­43,20,­43)
+Line(15,­46,20,­46)
+
+
+Line(23,­54,24,­54)
+Line(23,­54,23,­34)
+Line(23,­34,24,­34)
+Line(60,­54,61,­54)
+Line(61,­54,61,­34)
+Line(60,­34,61,­34)
+Text(34,26,K)
+Text(34,42,L)
+Text(44,26,IK)
+Text(44,42,JL)
+
+Line(65,­54,66,­54)
+Line(65,­54,65,­34)
+Line(65,­34,66,­34)
+Line(73,­54,74,­54)
+Line(74,­54,74,­34)
+Line(73,­34,74,­34)
+Text(34,67,"x'")
+Text(44,67,"y'")
+
 Pause 
+ClrDraw
+
+AKK+2DKKI+BIIKK→⌊T1(1)
+ALL+2DLLJ+BJJL→⌊T1(2)
+C→⌊T1(3)
+0→⌊T1(4)
+2EK+2KIF→⌊T1(5)
+2EL+2JLF→⌊T1(6)
+
+
+While 0=1
+//reductie xy
+---------------------------------------------------------------------------
+//display reductie
+End
+
 ClrHome
 Output(1,1,"De nieuwe fct is")
-Output(2,3,AKK+2DKKI+((BIIKK)))
+Output(2,3,⌊T1(1))
 Output(2,10,"x'^2+")
-Output(3,3,ALL+2DLLJ+(BJJLL))
+Output(3,3,⌊T1(2))
 Output(3,10,"y'^2+")
-Output(4,3,(2EK+2KIF)
+Output(4,3,⌊T1(5))
 Output(4,10,"x'  +")
-Output(5,3,(2EL+2JLF)
+Output(5,3,⌊T1(6))
 Output(5,10,"y'  +")
-Output(6,3,C)
+Output(6,3,⌊T1(3))
 Output(6,10,"=0")
 Pause 
-Menu("Keuze","Terug naar home",2)
-Lbl T1
-(BII+2DI+A)→W
-(BJJ+2DJ+A)→X
-(2E+2FI)→Y
-(2E+2FJ)→Z
-W→A
-X→B
-0→D
-Y→E
-Z→F
-Output(1,1,"De nieuwe fct")
-Output(2,3,A)
-Output(2,6,"x'^2+")
-Output(3,3,B)
-Output(3,6,"y'^2+")
-Output(4,3,C)
-Output(4,6,"+")
-Output(5,3,D)
-Output(5,6,"x'y'+")
-Output(6,3,E)
-Output(5,6,"x'+")
-Output(7,3,F)
-Output(5,6,"y'+")
-Pause 
 Goto 2
+
+
+While 0=1
+//Reductie van xy
+---------------------------------------------------------------------------
+//Poolvorm
+End
+
 
 Lbl P1
 ClrHome
@@ -137,58 +202,130 @@ Output(2,1,"Enter om verder te gaan")
 Pause 
 Goto 2
 
+
+While 0=1
+//Poolvorm
+---------------------------------------------------------------------------
+//Classificatie
+End
+
 Lbl C1
 ((A*B)-(D*D))→G
 (A*B*C+(2*D*F*E)-(E*E*B)-(D*D*C)-(F*F*A))→H
+If D=0
+Then
+A→⌊T1(1)
+B→⌊T1(2)
+2E→⌊T1(3)
+2F→⌊T1(4)
+C→⌊T1(5)
+0→S
+End
+If S≠0
+Then
+Goto R1
+End
 ClrHome
 Output(1,1,"δ=")
 Output(1,3,G)
 Output(2,1,"=")
 Output(2,3,H)
-If G>0andH<0
+End
+
+While 0=1
+//Classificatie
+---------------------------------------------------------------------------
+//Resultaten v/ classificatie
+
+((⌊T1(1)*⌊T1(2))→⌊T1(7)
+((⌊T1(1)*⌊T1(2)*⌊T1(3))-(⌊T1(5)*⌊T1(5)*⌊T1(2))-(⌊T1(6)*⌊T1(6)*⌊T1(1)))→⌊T1(8)
+If G>0andAH<0
 Then
 Output(3,1,"Een reële ellips")
 Output(4,1,"Kan gereduceerd worden tot")
 Output(5,1,"x²+y²=1")
+Pause
+Output(1,1,(⌊T1(1))²)
+Output(1,3,"(x+")
+Output(1,7,⌊T1(5)/⌊T1(1))
+Output(1,9,")²+")
+Output(2,1,(⌊T1(7)))
+Output(2,3,"(y+")
+Output(2,7,⌊T1(6)/⌊T1(2))
+Output(2,9,")²=")
+Output(2,11,(­⌊T1(1)*⌊T1(8))/⌊T1(7))
+Output(3,1,"Oorsprong verschuiving naar")
+Output(4,1,"O'=(")
+Output(4,5,­⌊T1(5)/⌊T1(1))
+Output(4,7,",")
+Output(4,8,­⌊T1(6)/⌊T1(2))
+Output(4,10,")")
+Pause 
+
+
+
 End
-If G>0andH>0
+
+If G>0andAH>0
 Then
 Output(3,1,"Een imaginaire ellips")
 Output(4,1,"Kan gereduceerd worden tot ")
 Output(5,1,"x²+y²=-1")
+Pause
+Output(1,1,(⌊T1(1))²)
+Output(1,3,"(x+")
+Output(1,7,⌊T1(5)/⌊T1(1))
+Output(1,9,")²+")
+Output(2,1,(⌊T1(7)))
+Output(2,3,"(y+")
+Output(2,7,⌊T1(6)/⌊T1(2))
+Output(2,9,")²=")
+Output(2,11,(­⌊T1(1)*⌊T1(8))/⌊T1(7))
+Output(3,1,"Oorsprong verschuiving naar")
+Output(4,1,"O'=(")
+Output(4,5,­⌊T1(5)/⌊T1(1))
+Output(4,7,",")
+Output(4,8,­⌊T1(6)/⌊T1(2))
+Output(4,10,")")
 End
-If G<0andH≠0
+
+If G<0andAH≠0
 Then
 Output(3,1,"Een reële hyperbool")
 Output(4,1,"Kan gereduceerd worden tot x²-y²=1")
-Output(5,1,"x²+y²=-1")
+Output(5,1,"x²+y²=0")
 End
+
 If G<0andH=0
 Then
 Output(3,1,"Een ontaarde hyperbool")
 Output(4,1,"Kan gereduceerd worden tot")
 Output(5,1,"x²-y²=0")
 End
+
 If G=0andH≠0
 Then
 Output(3,1,"Een reële parabool")
 Output(4,1,"Kan gereduceerd worden tot")
 Output(5,1," y=x²")
 End
+
 If G=0andH=0
 Then
-If 4*E²-(4*A*C)<0
+If 4*E²-(4*A*C)>0
 Then
 Output(3,1,"Twee reële evenwijdige rechten")
 Output(4,1,"Kan gereduceerd worden naar")
 Output(5,1,"x²=1")
 End
+
 If 4*E²-(4*A*C)<0
 Then
 Output(3,1,"Twee toegevoegd imaginaire rechten")
 Output(4,1,"Kan gereduceerd worden naar")
 Output(5,1,"x²=-1")
 End
+
 If 4*E²-(4*A*C)=0
 Then
 Output(3,1,"Twee samenvallende (reële) rechten")
@@ -197,8 +334,20 @@ Output(5,1,"x²=0")
 End
 End
 Pause 
+ClrDraw
 Goto 2
 
+
+
+While 0=1
+//Classificatie
+---------------------------------------------------------------------------
+//Shortcut stoppe
+End
+
 Lbl S1
+ClrDraw
 ClrHome
+ZStandard
+AxesOn
 Stop
