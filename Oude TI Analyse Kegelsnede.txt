@@ -70,7 +70,7 @@ End
 If IK≠int(IK)
 Then
 For(T,50,1,­1)
-If abs(IT)=abs(int(IT))
+If abs(IT)=abs(round(IT,0))
 Then
 T→K
 End
@@ -81,7 +81,7 @@ End
 If JL≠int(JL)
 Then
 For(T,50,1,­1)
-If abs(JT)=abs(int(JT))
+If abs(JT)=abs(round(JT,0))
 Then
 T→L
 End
@@ -349,6 +349,9 @@ End
 Lbl S1
 ClrDraw
 ClrHome
-ZStandard
+­10→Xmin
+10→Xmax
+­10→Ymin
+10→Ymax
 AxesOn
 Stop
