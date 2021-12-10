@@ -46,9 +46,9 @@ End
 
 Lbl R1
 ClrHome
-Menu("Keuze","Richting Kiezen",R1A,"orthogonale assen",R1B)
+Menu("Keuze","Richting Kiezen",R9,"orthogonale assen",R8)
 
-Lbl R1A
+Lbl R9
 ClrHome
 If A=0
 Then
@@ -60,11 +60,11 @@ If I=J
 Then
 Output(5,1,"Asymptotische Richtingen!")
 Pause 
-Goto R1A
+Goto R9
 End
-Goto R1C
+Goto R6
 
-Lbl R1B
+Lbl R8
 ((B-A)+√(AA-2AB+BB+4DD))/(2D)→I
 ((B-A)-√(AA-2AB+BB+4DD))/(2D)→J
 
@@ -84,13 +84,13 @@ Text(13,43,L)
 End
 Pause 
 ClrDraw
-Menu("Keuze","Richting behouden",R1B1,"Richtingen Omwisselen",R1C)
+Menu("Keuze","Richting behouden",R6,"Richtingen Omwisselen",R7)
 
-Lbl R1B1
+Lbl R7
 I+J→I
 I-J→J
 I-J→I
-Goto R1C
+Goto R6
 
 While 0=1
 //Richtingen kiezen
@@ -99,7 +99,7 @@ While 0=1
 End
 
 
-Lbl R1C
+Lbl R6
 ClrHome
 1→K
 If IK≠int(IK)
