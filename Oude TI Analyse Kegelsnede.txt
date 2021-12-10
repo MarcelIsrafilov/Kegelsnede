@@ -75,8 +75,9 @@ Then
 T→K
 End
 End
-
+End
 1→L
+
 If JL≠int(JL)
 Then
 For(T,50,1,­1)
@@ -85,7 +86,7 @@ Then
 T→L
 End
 End
-
+End
 0→S
 
 
