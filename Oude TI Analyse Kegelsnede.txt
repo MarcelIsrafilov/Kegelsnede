@@ -34,7 +34,7 @@ While 0=1
 End
 
 Lbl 2
-Menu("Keuze","Classificatieandreductie",C1,"Poolvorm 2 punten",P1,"Toegevoegde Richtingen",R1,"Aanpassen coeffn",1,"Stop",S1)
+Menu("Keuze","Classificatieandreductie",C1,"Poolvorm 2 punten",P1,"Aanpassen coeffn",1,"Stop",S1)
 
 
 
@@ -45,6 +45,10 @@ While 0=1
 End
 
 Lbl R1
+If A=0
+Then
+Goto T2
+End
 ClrHome
 Menu("Keuze","Richting Kiezen",R9,"orthogonale assen",R8)
 
@@ -208,7 +212,7 @@ Output(5,10,"y'  +")
 Output(6,3,⌊T1(3))
 Output(6,10,"=0")
 Pause 
-Goto 2
+Goto T2
 
 
 While 0=1
@@ -241,79 +245,367 @@ Goto 2
 While 0=1
 //Poolvorm
 ---------------------------------------------------------------------------
+// Reductie 2 (ellipsiesandhyperbolies)
+
+
+Lbl T2
+ClrHome
+If ⌊T1(5)/⌊T1(1)=round(⌊T1(5)/⌊T1(1),0)and⌊T1(6)/⌊T1(2)=round(⌊T1(6)/⌊T1(2),0)andH/G=round(H/G,0)
+Then
+Text(1,1,"T₂=")
+Text(10,4,1,"     ",0,"     ",1*⌊T1(5)/⌊T1(1))
+Text(20,4,0,"     ",1,"     ",1*⌊T1(6)/⌊T1(2))
+Text(30,4,0,"     ",0,"     ",1)
+Line(2,­38,3,­38)
+Line(2,­38,2,­8)
+Line(2,­8,3,­8)
+Line(45,­38,46,­38)
+Line(46,­38,46,­8)
+Line(45,­8,46,­8)
+Text(41,3,"Verschuiving   oorsprong")
+Text(48,4,⌊T1(1),"x'²+",⌊T1(2),"y'²=",1*H/G)
+⌊T1(5)/⌊T1(1)→⌊T2(1)
+⌊T1(6)/⌊T1(2)→⌊T2(2)
+Pause 
+ClrDraw
+Goto R3
+
+Else
+If H/G=round(H/G,0)
+Then
+For(T,50,1,­1)
+If ⌊T1(5)/⌊T1(1)*T=round(⌊T1(5)/⌊T1(1)*T,0)
+Then
+⌊T1(5)/⌊T1(1)*T→K
+T→L
+For(T,50,1,­1)
+If ⌊T1(6)/⌊T1(2)*T=round(⌊T1(6)/⌊T1(2)*T,0)
+Then
+⌊T1(6)/⌊T1(2)*T→M
+T→N
+Text(4,4,⌊T1(1),"(x'+",K,")²+²,⌊T1(2),"(y'+",M,")²=",H/G)
+Line(3,­10,9,­10)
+Text(4,14,L)
+Line(32,­10,38,­10)
+Text(34,14,N)
+Pause 
+ClrDraw
+Text(1,1,"T₂=")
+Text(10,4,1,"     ",0,"     "1*K)
+Line(22,­17,28,­17)
+Text(38,23,L)
+Text(30,4,0,"     ",1,"     "1*M)
+Line(22,-37,28,­37)
+Text(38,43,N)
+Text(50,4,0,"     ",0,"     "1)
+Line(2,­58,3,­58)
+Line(2,­58,2,­8)
+Line(2,­8,3,­8)
+Line(45,­58,46,­58)
+Line(46,­58,46,­8)
+Line(45,­8,46,­8)
+Pause
+ClrDraw
+Text(20,3,"Verschuiving   oorsprong")
+Text(20+7,4,⌊T1(1),"x'²+",⌊T1(2),"y'²=",1*H/G)
+⌊T1(5)/⌊T1(1)→⌊T2(1)
+⌊T1(6)/⌊T1(2)→⌊T2(2)
+Pause 
+Goto R3
+End
+End
+End
+End
+
+For(T,50,1,­1)
+If ⌊T1(5)/⌊T1(1)*T=round(⌊T1(5)/⌊T1(1)*T,0)
+Then
+⌊T1(5)/⌊T1(1)*T→K
+T→L
+For(T,50,1,­1)
+If ⌊T1(6)/⌊T1(2)*T=round(⌊T1(6)/⌊T1(2)*T,0)
+Then
+⌊T1(5)/⌊T1(1)*T→M
+T→N
+For(T,50,1,­1)
+If G/H*T=round(G.H*T,0)
+Then
+G/H*T→O
+T→P
+Text(4,4,⌊T1(1),"(x'+",K,")²+²,⌊T1(2),"(y'+",M,")²=",O)
+Line(3,­10,9,­10)
+Text(4,14,L)
+Line(32,­10,38,­10)
+Text(34,14,N)
+Line(46,­10,52,­10)
+Text(48,14,P)
+Pause 
+ClrDraw
+Text(1,1,"T₂=")
+Text(10,4,1,"     ",0,"     "1*K)
+Line(22,­17,28,­17)
+Text(38,23,L)
+Text(30,4,0,"     ",1,"     "1*M)
+Line(22,-37,28,­37)
+Text(38,43,N)
+Text(50,4,0,"     ",0,"     "1)
+Line(2,­58,3,­58)
+Line(2,­58,2,­8)
+Line(2,­8,3,­8)
+Line(45,­58,46,­58)
+Line(46,­58,46,­8)
+Line(45,­8,46,­8)
+Pause
+ClrDraw
+Text(20,3,"Verschuiving   oorsprong")
+Text(20+7,4,⌊T1(1),"x'²+",⌊T1(2),"y'²=",1*H/G)
+⌊T1(5)/⌊T1(1)→⌊T2(1)
+⌊T1(6)/⌊T1(2)→⌊T2(2)
+Pause 
+Goto R3
+End
+End
+End
+End
+End
+End
+End
+
+
+While 0=1
+// Reductie 2 (ellipsiesandhyperbolies)
+---------------------------------------------------------------------------
+// Reductie 2 (parabolies)
+End
+
+Else
+If G=O
+Then
+CrlDraw
+
+
+While 0=1
+// Reductie 2 (parabolies)
+---------------------------------------------------------------------------
+// a= 0 --> spiegeling
+End
+
+If ⌊T1(1)=0
+Then
+Text(4,4"a=0 => spiegeling => a'=0")
+⌊T1(1)→LS1(2)
+⌊T1(2)→LS1(1)
+⌊T1(3)→LS1(3)
+⌊T1(4)→LS1(4)
+⌊T1(5)→LS1(6)
+⌊T1(6)→LS1(5)
+Pause 
+Else
+⌊T1(1)→LS1(1)
+⌊T1(2)→LS1(2)
+⌊T1(3)→LS1(3)
+⌊T1(4)→LS1(4)
+⌊T1(5)→LS1(5)
+⌊T1(6)→LS1(6)
+End
+
+While 0=1
+// a= 0
+---------------------------------------------------------------------------
+// ≠0
+End
+
+If LS1(6)≠0
+Then
+LS1(1)/(2*LS1(6))→P
+LS1(5)/LS1(6)→Q
+LS1(3)/(2*LS1(6))→R
+
+If P=round(P,0)andQ=round(Q,0)andR=round(R,0)
+Then
+Text(4,4,"y'=",P,"x'²+",Q,"x'+",R)
+For(T,50,1,­1)
+If(Q/(2*P)*T=round(Q/(2*P)*T,0)
+Then
+Q/(2P)*T→K
+T→L
+For(T,50,1,­1)
+If ­(QQ-4PR)/(4P)*T=round(­(QQ-4PR)/(4P)*T,0)
+Then
+­(QQ-4PR)/(4P)*T→M
+T→N
+Pause
+Text(1,1,"T₂=")
+Text(10,4,1,"     ",0,"     "K)
+Line(22,­17,28,­17)
+Text(38,23,L)
+Text(30,4,0,"     ",1,"     "M)
+Line(22,-37,28,­37)
+Text(38,43,N)
+Text(50,4,0,"     ",0,"     "1)
+Line(2,­58,3,­58)
+Line(2,­58,2,­8)
+Line(2,­8,3,­8)
+Line(45,­58,46,­58)
+Line(46,­58,46,­8)
+Line(45,­8,46,­8)
+Pause
+ClrDraw
+Text(20,3,"Verschuiving   oorsprong")
+Text(20+7,4,"y''=",P,"x''²")
+K/L→⌊T2(1)
+M/N→⌊T2(2)
+Pause 
+End
+End
+End
+End
+End
+
+If P≠round(P,0)orQ≠round(Q,0)orR≠round(R,0)
+Then
+For(T,50,1,­1)
+If PT=round(PT,0)
+Then
+PT→K
+T→L
+For(T,50,1,­1)
+If QT=round(QT,0)
+Then
+QT→M
+T→N
+For(T,50,1,­1)
+If RT=round(RT,0)
+Then
+RT→O
+T→S
+
+Text(20,3,"y'=",K,"x'²+",M,"x'+",O)
+Line(3,­10,9,­10)
+Text(4,14,L)
+Line(32,­10,38,­10)
+Text(34,14,N)
+Line(46,­10,52,­10)
+Text(48,14,S)
+If Q/(2P)*T=round(Q/(2P)*T,0)
+Then
+Q/(2P)*T→K
+T→L
+For(T,100,1,­1)
+If (QQ-4PR)/(4P)*T=round((QQ-4PR)/(4P)*T,0)
+Then
+(QQ-4PR)/(4P)*T→M
+T→N
+Text(1,1,"T₂=")
+Text(10,4,1,"     ",0,"     "K)
+Line(22,­17,28,­17)
+Text(38,23,L)
+Text(30,4,0,"     ",1,"     "M)
+Line(22,-37,28,­37)
+Text(38,43,N)
+Text(50,4,0,"     ",0,"     "1)
+Line(2,­58,3,­58)
+Line(2,­58,2,­8)
+Line(2,­8,3,­8)
+Line(45,­58,46,­58)
+Line(46,­58,46,­8)
+Line(45,­8,46,­8)
+Pause
+ClrDraw
+Text(20,3,"Verschuiving   oorsprong")
+Text(20+7,4,"y''=",P,"x''²")
+K/L→⌊T2(1)
+M/N→⌊T2(2)
+Pause
+End
+End
+End
+End
+End
+End
+End
+End
+End
+End
+End
+
+
+While 0=1
+// ≠0
+---------------------------------------------------------------------------
+// =0
+End
+
+If LS1(6)=0
+Then
+
+Pause 
+End
+
+End
+ClrDraw
+Goto 2
+
+
+While 0=1
+// Reductie 2 parabolies
+---------------------------------------------------------------------------
+//a= 0 --> spiegeling)
+End
+
+
+While 0=1
+// Reductie 3
+---------------------------------------------------------------------------
 //Classificatie
 End
 
 Lbl C1
 ((A*B)-(D*D))→G
 (A*B*C+(2*D*F*E)-(E*E*B)-(D*D*C)-(F*F*A))→H
-If D=0
-Then
-A→⌊T1(1)
-B→⌊T1(2)
-2E→⌊T1(3)
-2F→⌊T1(4)
-C→⌊T1(5)
-0→S
-End
-If S≠0
-Then
-Goto R1
-End
+
 ClrHome
 Output(1,1,"δ=")
 Output(1,3,G)
 Output(2,1,"=")
 Output(2,3,H)
 
+
 While 0=1
 //Classificatie
 ---------------------------------------------------------------------------
 //Resultaten v/ classificatie
+End
+
 
 ((⌊T1(1)*⌊T1(2))→⌊T1(7)
 (((⌊T1(1)*⌊T1(2)*⌊T1(3))-(⌊T1(5)*⌊T1(5)*⌊T1(2))-(⌊T1(6)*⌊T1(6)*⌊T1(1)))→⌊T1(8)
 
-If G>0andA*H<0
+If G>0andAH<0
 Then
 Output(3,1,"Een reële ellips")
 Output(4,1,"reduceerbaar tot")
 Output(5,1,"x²+y²=1")
-Pause
-ClrHome
-Output(1,1,(⌊T1(1)*⌊T1(1)))
-Output(1,3,"(x+")
-Output(1,7,⌊T1(5)/⌊T1(1))
-Output(1,9,")²+")
-Output(2,1,(⌊T1(7)))
-Output(2,3,"(y+")
-Output(2,7,⌊T1(6)/⌊T1(2))
-Output(2,9,")²=")
-Output(2,11,(­⌊T1(1)*⌊T1(8))/⌊T1(7))
-Output(3,1,"Oorsprong verschuiving naar")
-Output(4,1,"O'=(")
-Output(4,5,­⌊T1(5)/⌊T1(1))
-Output(4,7,",")
-Output(4,8,­⌊T1(6)/⌊T1(2))
-Output(4,10,")")
-ClrHome
 Pause 
+Goto R1
 End
 
-If G>0andA*H>0
+If G>0andAH>0
 Then
 Output(3,1,"Een imaginaire ellips")
 Output(4,1,"reduceerbaar tot")
 Output(5,1,"x²+y²=-1")
-
-Pause
+Pause 
+Goto R1
 End
 
-If G<0andA*H≠0
+If G<0andAH≠0
 Then
 Output(3,1,"Een reële hyperbool")
 Output(4,1,"reduceerbaar tot")
 Output(5,1,"x²+y²=0")
+Pause 
+Goto R1
 End
 
 If G<0andH=0
@@ -321,6 +613,8 @@ Then
 Output(3,1,"Een ontaarde hyperbool")
 Output(4,1,"reduceerbaar tot")
 Output(5,1,"x²-y²=0")
+Pause 
+Goto R1
 End
 
 If G=0andH≠0
@@ -328,6 +622,8 @@ Then
 Output(3,1,"Een reële parabool")
 Output(4,1,"reduceerbaar tot")
 Output(5,1," y=x²")
+Pause 
+Goto R1
 End
 
 If G=0andH=0
@@ -337,27 +633,26 @@ Then
 Output(3,1,"Twee reële evenwijdige rechten")
 Output(4,1,"reduceerbaar tot")
 Output(5,1,"x²=1")
+Pause 
+Goto R1
 End
 If 4*E²-(4*A*C)<0
 Then
 Output(3,1,"Twee toegevoegd imaginaire rechten")
 Output(4,1,"reduceerbaar tot")
 Output(5,1,"x²=-1")
+Pause 
+Goto R1
 End
 If 4*E²-(4*A*C)=0
 Then
 Output(3,1,"Twee samenvallende (reële) rechten")
 Output(4,1,"reduceerbaar tot")
 Output(5,1,"x²=0")
-End
-End
-
 Pause 
-ClrDraw
-ClrHome
-Goto 2
-
-
+Goto R1
+End
+End
 
 While 0=1
 //Classificatie
