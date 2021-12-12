@@ -15,7 +15,7 @@ End
 Lbl 1
 ClrDraw
 ClrHome
-Output(1,1,"Geef de coeffn in van K")
+Output(1,1,"Geef de coeffn in van K, enter om door te gaan")
 Pause 
 ClrHome
 Input "a=",A
@@ -162,11 +162,11 @@ Then
 1→K
 1→L
 Text(2,2,"m1=",M)
-Text(2,50,"m2=",L)
+Text(2,50,"m2=",N)
 Line(10,­6,13,­6)
 Line(27,­6,30,­6)
 Text(17,30,K)
-Text(17,74,N)
+Text(17,74,L)
 
 K→⌊T1(1)
 L→⌊T1(2)
@@ -243,7 +243,7 @@ C→⌊XYWEG(3)
 D→⌊XYWEG(4)
 E→⌊XYWEG(5)
 F→⌊XYWEG(6)
-
+Text(85,10,⌊XYWEG(1),"x'²+",⌊XYWEG(2),"y'²+",2*⌊XYWEG(5),"x'+",2*⌊XYWEG(6),"y'+",⌊XYWEG(3),"=0")
 Goto R2
 End
 
@@ -613,13 +613,23 @@ Then
 (­⌊XYWEG(1)*H)/(G²)→Q
 If P=int(P) and Q=int(Q)
 Then
-(H)/(⌊XYWEG(1)*G)→P
-(⌊XYWEG(1)*H)/(G²)→Q
-If P=int(P) and Q=int(Q)
-Then
+ClrDraw
+Text(10,10,"ijkaanpassing")
 Text(52,10,"T₃:")
 Text(42,20+30,P,"    ",0)
+Line(17,­15,21,­15)
+Line(16,­21,17,­15)
+Line(15,­20,16,­21)
 Text(60,20+30,0,"    ",Q)
+Line(22,­22,27,­22)
+Line(21,­28,22,­22)
+Line(20,­27,21,­28)
+Line(13,­15,13,­30)
+Line(30,­15,30,­30)
+Line(13,­15,15,­15)
+Line(13,­30,15,­30)
+Line(30,­15,28,­15)
+Line(30,­30,28,­30)
 Text(100,15,"x'''²+y'''²=1")
 Pause 
 Goto E1
@@ -640,13 +650,14 @@ If √(K)=int(√(K)) and √(L)=int(√(L))
 Then
 If √(M)=int(√(M)) and √(N)=int(√(N))
 Then
+Text(10,10,"ijkaanpassing")
 Text(52,10,"T₃:")
-Text(42,50,K,"    ",0)
+Text(42,50,√(K),"    ",0)
 Line(16,­21,22,­21)
-Text(57,50,L)
-Text(72,50,"        ",M)
+Text(57,50,√(L))
+Text(72,50,"        ",√(M))
 Line(23,­33,27,­33)
-Text(88,50,0,"    ",N)
+Text(88,50,0,"    ",√(N))
 Line(3+10,­15,3+10,­40)
 Line(35,­15,35,­40)
 Line(3+10,­15,5+10,­15)
@@ -658,6 +669,7 @@ Pause
 Goto E1
 End
 End
+Text(10,10,"ijkaanpassing")
 Text(52,10,"T₃:")
 Text(42,50,K,"    ",0)
 Line(17,­21,22,­21)
@@ -698,9 +710,22 @@ Then
 (⌊XYWEG(1)*H)/(G²)→Q
 If P=int(P) and Q=int(Q)
 Then
+Text(10,10,"ijkaanpassing")
 Text(52,10,"T₃:")
 Text(42,20+30,P,"    ",0)
+Line(17,­15,21,­15)
+Line(16,­21,17,­15)
+Line(15,­20,16,­21)
 Text(60,20+30,0,"    ",Q)
+Line(22,­22,27,­22)
+Line(21,­28,22,­22)
+Line(20,­27,21,­28)
+Line(13,­15,13,­30)
+Line(30,­15,30,­30)
+Line(13,­15,15,­15)
+Line(13,­30,15,­30)
+Line(30,­15,28,­15)
+Line(30,­30,28,­30)
 Text(100,15,"x'''²+y'''²=-1")
 Pause 
 Goto E1
@@ -720,6 +745,7 @@ If √(K)=int(√(K)) and √(L)=int(√(L))
 Then
 If √(M)=int(√(M)) and √(N)=int(√(N))
 Then
+Text(10,10,"ijkaanpassing")
 Text(52,10,"T₃:")
 Text(42,50,K,"    ",0)
 Line(16,­21,22,­21)
@@ -738,6 +764,7 @@ Pause
 Goto E1
 End
 End
+Text(10,10,"ijkaanpassing")
 Text(52,10,"T₃:")
 Text(42,50,K,"    ",0)
 Line(17,­21,22,­21)
@@ -770,7 +797,28 @@ End
 
 If ⌊XYWEG(1)*H=0
 Then
-
+Text(10,10,"ijkaanpassing")
+Text(52,10,"T₃:")
+Text(42,50,1,"    ",0)
+Line(17,­21,22,­21)
+Text(59,50,L)
+Line(16,­22,22,­22)
+Line(15,­26,16,­22)
+Line(14,­25,15,­26)
+Text(72,50,"          ",1)
+Line(24,­33,27,­33)
+Text(90,50,0,"      ",N)
+Line(23,­34,29,­34)
+Line(22,­38,23,­34)
+Line(21,­37,22,­38)
+Line(3+10,­15,3+10,­40)
+Line(35,­15,35,­40)
+Line(3+10,­15,5+10,­15)
+Line(3+10,­40,5+10,­40)
+Line(35,­15,33,­15)
+Line(35,­40,33,­40)
+Text(120,15,"x'''²+y'''²=0")
+Pause 
 End
 
 Else
@@ -778,7 +826,81 @@ If G<0
 Then
 If H≠0
 Then
+(­H)/(⌊XYWEG(1)*G)→P
+(⌊XYWEG(1)*H)/(G*G)→Q
+If P<0
+Then
+ClrDraw
+Text(10,10,"We spiegelen omdat  P<0")
+(­H)/(⌊XYWEG(1)*G)→P
+(­⌊XYWEG(1)*H)/(G*G)→Q
+Pause 
+End
 
+If P=int(P) and Q=int(Q)
+Then
+ClrDraw
+Text(10,10,"ijkaanpassing")
+Text(52,10,"T₃:")
+Text(42,20+30,P,"    ",0)
+Line(17,­15,21,­15)
+Line(16,­21,17,­15)
+Line(15,­20,16,­21)
+Text(60,20+30,0,"    ",Q)
+Line(22,­22,27,­22)
+Line(21,­28,22,­22)
+Line(20,­27,21,­28)
+Line(13,­15,13,­30)
+Line(30,­15,30,­30)
+Line(13,­15,15,­15)
+Line(13,­30,15,­30)
+Line(30,­15,28,­15)
+Line(30,­30,28,­30)
+Text(100,15,"x'''²+y'''²=1")
+Pause 
+Goto E1
+
+Else
+For(T,1,50)
+If P*T=int(P*T)
+Then
+P*T→K
+T→L
+For(T,1,50)
+If Q*T=int(Q*T)
+Then
+Q*T→M
+T→N
+ClrDraw
+Text(10,10,"ijkaanpassing")
+Text(52,10,"T₃:")
+Text(42,50,K,"    ",0)
+Line(17,­21,22,­21)
+Text(57,50,L)
+Line(16,­15,22,­15)
+Line(15,­26,16,­15)
+Line(14,­25,15,­26)
+Text(72,50,"          ",M)
+Line(24,­33,27,­33)
+Text(88,50,0,"      ",N)
+Line(23,­27,29,­27)
+Line(22,­38,23,­27)
+Line(21,­37,22,­38)
+Line(3+10,­15,3+10,­40)
+Line(35,­15,35,­40)
+Line(3+10,­15,5+10,­15)
+Line(3+10,­40,5+10,­40)
+Line(35,­15,33,­15)
+Line(35,­40,33,­40)
+Text(100,15,"x'''²+y'''²=1")
+Pause 
+Goto E1
+End
+End
+End
+End
+End
+End
 End
 If H=0
 Then
@@ -786,15 +908,30 @@ Then
 End
 End
 
-Goto 2
+Goto E1
 
 While 0=1
 
 //reductie 3
 ----------------------------------------
+//Eindtransformatiematrix
+
+End
+
+Lbl E1
+ClrDraw
+
+Goto 2
+
+
+While 0=1
+
+//Eindtransformatiematrix
+----------------------------------------
 //Poolvorm
 
 End
+
 
 Lbl P1
 ClrHome
