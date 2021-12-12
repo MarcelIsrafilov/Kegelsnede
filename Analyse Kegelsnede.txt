@@ -194,6 +194,7 @@ Text(85,10,⌊XYWEG(1),"x'²+",⌊XYWEG(2),"y'²+",2*⌊XYWEG(5),"x'+",2*⌊XYWE
 Pause 
 Goto R2
 End
+End
 
 For(T,1,50)
 If N*T=int(N*T)
@@ -235,8 +236,7 @@ Pause
 Goto R2
 End
 End
-End
-End
+Else
 A→⌊XYWEG(1)
 B→⌊XYWEG(2)
 C→⌊XYWEG(3)
@@ -377,7 +377,7 @@ Line(38,­3,35,­3)
 Line(13,­30,15,­30)
 Line(38,­30,36,­30)
 Text(80,10,"Verschuiving  v/d  oorsprong")
-Text(100,10,⌊XYWEG(1),"x''²+",⌊XYWEG(2),"y''²=",­1*H/G)
+Text(100,10,⌊XYWEG(1),"x''²+",⌊XYWEG(2),"y''²=",­H/G)
 ­1*⌊XYWEG(5)/⌊XYWEG(1)→⌊T2(1)
 ­1*⌊XYWEG(6)/⌊XYWEG(2)→⌊T2(2)
 Pause 
@@ -441,7 +441,7 @@ End
 If ⌊SPIEG(6)≠0
 Then
 ­⌊SPIEG(1)/(2*⌊SPIEG(6))→P
-­2*⌊SPIEG(5)/(2*⌊SPIEG(6))→Q
+­⌊SPIEG(5)/⌊SPIEG(6)→Q
 ­⌊SPIEG(3)/(2*⌊SPIEG(6))→R
 
 If P=int(P) and Q=int(Q) and R=int(R)
@@ -476,14 +476,14 @@ Text(80,10,"Verschuiving  v/d  oorsprong")
 Text(100,10,"y''=",P,"x''²")
 K/L→⌊T2(1)
 M/N→⌊T2(2)
-End
-End
-End
-End
 Pause 
 End
+End
+End
+End
 
 
+Else
 If P≠int(P) or Q≠int(Q) or R≠int(R)
 Then
 For(T,1,50)
@@ -519,6 +519,8 @@ If ­(Q²-4*P*R)/(4*P)*T=int(­(Q²-4*P*R)/(4*P)*T)
 Then
 ­(Q²-4*P*R)/(4*P)*T→M
 T→N
+Pause 
+ClrDraw
 Text(25,10,"T₂=")
 Text(7,20+30,1,"     ",0,"     ",K)
 Line(30,­8,33,­8)
@@ -538,6 +540,8 @@ Text(100,10,"y''=",P,"x''²")
 K/L→⌊T2(1)
 M/N→⌊T2(2)
 Pause 
+Goto R3
+End
 End
 End
 End
@@ -550,12 +554,31 @@ End
 End
 End
 
-
+While 0=1
+Then
 --------------------------------------------
 //=0
 
+End
+
 If ⌊SPIEG(6)=0
 Then
+
+While 0=1
+Then
+--------------------------------------------
+//discriminant>0
+
+End
+
+If (2*⌊SPIEG(5))²-4*⌊SPIEG(1)*⌊SPIEG(3)>0
+Then
+
+
+(­2*⌊SPIEG(5)+√((2*⌊SPIEG(5))²-4*⌊SPIEG(1)*⌊SPIEG(3)))/(2*⌊SPIEG(1))→X
+(­2*⌊SPIEG(5)-√((2*⌊SPIEG(5))²-4*⌊SPIEG(1)*⌊SPIEG(3)))/(2*⌊SPIEG(1))→Y
+
+End
 
 Pause 
 End
@@ -573,6 +596,196 @@ While 0=1
 End
 
 Lbl R3
+
+While 0=1
+
+//reductie 3
+----------------------------------------
+//Reductie 3 ellipsen
+
+End
+
+If G>0
+Then
+If ⌊XYWEG(1)*H<0
+Then
+(­H)/(⌊XYWEG(1)*G)→P
+(­⌊XYWEG(1)*H)/(G²)→Q
+If P=int(P) and Q=int(Q)
+Then
+(H)/(⌊XYWEG(1)*G)→P
+(⌊XYWEG(1)*H)/(G²)→Q
+If P=int(P) and Q=int(Q)
+Then
+Text(52,10,"T₃:")
+Text(42,20+30,P,"    ",0)
+Text(60,20+30,0,"    ",Q)
+Text(100,15,"x'''²+y'''²=1")
+Pause 
+Goto E1
+
+Else
+For(T,1,50)
+If P*T=int(P*T)
+Then
+P*T→K
+T→L
+For(T,1,50)
+If Q*T=int(Q*T)
+Then
+Q*T→M
+T→N
+ClrDraw
+If √(K)=int(√(K)) and √(L)=int(√(L))
+Then
+If √(M)=int(√(M)) and √(N)=int(√(N))
+Then
+Text(52,10,"T₃:")
+Text(42,50,K,"    ",0)
+Line(16,­21,22,­21)
+Text(57,50,L)
+Text(72,50,"        ",M)
+Line(23,­33,27,­33)
+Text(88,50,0,"    ",N)
+Line(3+10,­15,3+10,­40)
+Line(35,­15,35,­40)
+Line(3+10,­15,5+10,­15)
+Line(3+10,­40,5+10,­40)
+Line(35,­15,33,­15)
+Line(35,­40,33,­40)
+Text(100,15,"x'''²+y'''²=1")
+Pause 
+Goto E1
+End
+End
+Text(52,10,"T₃:")
+Text(42,50,K,"    ",0)
+Line(17,­21,22,­21)
+Text(57,50,L)
+Line(16,­15,22,­15)
+Line(15,­26,16,­15)
+Line(14,­25,15,­26)
+Text(72,50,"          ",M)
+Line(24,­33,27,­33)
+Text(88,50,0,"      ",N)
+Line(23,­27,29,­27)
+Line(22,­38,23,­27)
+Line(21,­37,22,­38)
+Line(3+10,­15,3+10,­40)
+Line(35,­15,35,­40)
+Line(3+10,­15,5+10,­15)
+Line(3+10,­40,5+10,­40)
+Line(35,­15,33,­15)
+Line(35,­40,33,­40)
+Text(100,15,"x'''²+y'''²=1")
+Pause 
+Goto E1
+
+End
+End
+End
+End
+End
+End
+
+
+
+
+If ⌊XYWEG(1)*H>0
+Then
+Then
+(H)/(⌊XYWEG(1)*G)→P
+(⌊XYWEG(1)*H)/(G²)→Q
+If P=int(P) and Q=int(Q)
+Then
+Text(52,10,"T₃:")
+Text(42,20+30,P,"    ",0)
+Text(60,20+30,0,"    ",Q)
+Text(100,15,"x'''²+y'''²=-1")
+Pause 
+Goto E1
+Else
+For(T,1,50)
+If P*T=int(P*T)
+Then
+P*T→K
+T→L
+For(T,1,50)
+If Q*T=int(Q*T)
+Then
+Q*T→M
+T→N
+ClrDraw
+If √(K)=int(√(K)) and √(L)=int(√(L))
+Then
+If √(M)=int(√(M)) and √(N)=int(√(N))
+Then
+Text(52,10,"T₃:")
+Text(42,50,K,"    ",0)
+Line(16,­21,22,­21)
+Text(57,50,L)
+Text(72,50,"        ",M)
+Line(23,­33,27,­33)
+Text(88,50,0,"    ",N)
+Line(3+10,­15,3+10,­40)
+Line(35,­15,35,­40)
+Line(3+10,­15,5+10,­15)
+Line(3+10,­40,5+10,­40)
+Line(35,­15,33,­15)
+Line(35,­40,33,­40)
+Text(100,15,"x'''²+y'''²=-1")
+Pause 
+Goto E1
+End
+End
+Text(52,10,"T₃:")
+Text(42,50,K,"    ",0)
+Line(17,­21,22,­21)
+Text(57,50,L)
+Line(16,­15,22,­15)
+Line(15,­26,16,­15)
+Line(14,­25,15,­26)
+Text(72,50,"          ",M)
+Line(24,­33,27,­33)
+Text(88,50,0,"      ",N)
+Line(23,­27,29,­27)
+Line(22,­38,23,­27)
+Line(21,­37,22,­38)
+Line(3+10,­15,3+10,­40)
+Line(35,­15,35,­40)
+Line(3+10,­15,5+10,­15)
+Line(3+10,­40,5+10,­40)
+Line(35,­15,33,­15)
+Line(35,­40,33,­40)
+Text(100,15,"x'''²+y'''²=-1")
+Pause 
+Goto E1
+
+End
+End
+End
+End
+End
+End
+
+If ⌊XYWEG(1)*H=0
+Then
+
+End
+
+Else
+If G<0
+Then
+If H≠0
+Then
+
+End
+If H=0
+Then
+
+End
+End
+
 Goto 2
 
 While 0=1
